@@ -22,7 +22,7 @@ public class CategoryController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public CategoriesResponse getCategories() {
-        CategoriesResponse response = null;
+        CategoriesResponse response = new CategoriesResponse();
 
         MajorCategory dummyCategory = new MajorCategory();
         dummyCategory.setName("ダミー1");

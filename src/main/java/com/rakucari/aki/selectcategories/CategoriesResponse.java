@@ -1,5 +1,6 @@
 package com.rakucari.aki.selectcategories;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.rakucari.aki.category.MajorCategory;
@@ -13,16 +14,20 @@ import com.rakucari.aki.category.MajorCategory;
 public class CategoriesResponse {
     private List<MajorCategory> categories;
 
+    public CategoriesResponse() {
+        this.categories = new ArrayList<MajorCategory>();
+    }
+
     public void addMajorCategory(MajorCategory majorCategory) {
-        categories.add(majorCategory);
+        this.categories.add(majorCategory);
     }
 
     public boolean hasMajorCategories() {
-        return categories.size() != 0;
+        return this.categories.size() != 0;
     }
 
     public List<MajorCategory> getMajorCategories() {
-        return categories;
+        return this.categories;
     }
 
     public void setMajorCategories(List<MajorCategory> categories) {

@@ -28,3 +28,7 @@ HELP.md
 
 ### VS Code ###
 .vscode/
+
+### My settings ###
+bin/main/application.properties
+src/main/resources/application.properties
