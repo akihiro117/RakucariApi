@@ -32,3 +32,4 @@ HELP.md
 ### My settings ###
 bin/main/application.properties
 src/main/resources/application.properties
+/bin/
