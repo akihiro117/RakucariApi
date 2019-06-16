@@ -10,6 +10,11 @@ public class Url {
 
     public Url(String url) {
         // TODO: urlのバリデーションを行う。
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
 }

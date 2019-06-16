@@ -1,10 +1,9 @@
 package com.rakucari.aki.selectcategories;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.rakucari.aki.category.MajorCategory;
 
 /**
  * カテゴリーの操作を行うコントローラークラス。
@@ -16,6 +15,9 @@ import com.rakucari.aki.category.MajorCategory;
 @RestController
 public class CategoryController {
 
+    @Autowired
+    private SelectCategoriesService selectCategoriesService;
+
     /**
      * カテゴリーのリストを返す。
      * @return
@@ -24,10 +26,8 @@ public class CategoryController {
     public CategoriesResponse getCategories() {
         CategoriesResponse response = new CategoriesResponse();
 
-        MajorCategory dummyCategory = new MajorCategory();
-        dummyCategory.setName("ダミー1");
-
-        response.addMajorCategory(dummyCategory);
+        response.setMajorCategories(
+                selectCategoriesService.findAllCategories());
 
         return response;
     }
