@@ -1,7 +1,9 @@
 package com.rakucari.aki.selectcategories;
 
 import java.util.List;
-import java.util.Locale.Category;
+
+import com.rakucari.aki.category.MajorCategory;
+
 
 /**
  * カテゴリーを取得するAPIのレスポンス。
@@ -9,17 +11,21 @@ import java.util.Locale.Category;
  *
  */
 public class CategoriesResponse {
-    private List<Category> categories;
+    private List<MajorCategory> categories;
 
-    public boolean hasCategories() {
+    public void addMajorCategory(MajorCategory majorCategory) {
+        categories.add(majorCategory);
+    }
+
+    public boolean hasMajorCategories() {
         return categories.size() != 0;
     }
 
-    public List<Category> getCategories() {
+    public List<MajorCategory> getMajorCategories() {
         return categories;
     }
 
-    public void setCategories(List<Category> categories) {
+    public void setMajorCategories(List<MajorCategory> categories) {
         this.categories = categories;
     }
 
