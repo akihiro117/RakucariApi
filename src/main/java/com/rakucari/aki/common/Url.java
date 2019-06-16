@@ -2,6 +2,7 @@ package com.rakucari.aki.common;
 
 /**
  * URLを扱うクラス。
+ * immutableにする。
  * @author Akihiro Yamada
  *
  */

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.rakucari.aki.category.MajorCategory;
 import com.rakucari.aki.category.SubCategory;
-import com.rakucari.aki.common.Url;
 
 /**
  * カテゴリーを取得するサービスクラス。
@@ -31,10 +30,10 @@ public class SelectCategoriesService {
         List<SubCategory> subCategories = new ArrayList<SubCategory>();
         SubCategory subCategory = new SubCategory();
         subCategory.setName("dummySub");
-        subCategory.setUrl(new Url("suburl"));
+        subCategory.setUrl("suburl");
         subCategories.add(subCategory);
         dummy.setSubCategories(subCategories);
-        dummy.setUrl(new Url("http://localhost:8080/rakucari/catetory"));
+        dummy.setUrl("http://localhost:8080/rakucari/catetory");
 
         majorCategories.add(dummy);
 

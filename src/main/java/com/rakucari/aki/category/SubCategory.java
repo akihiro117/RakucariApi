@@ -3,7 +3,7 @@ package com.rakucari.aki.category;
 import com.rakucari.aki.common.Url;
 
 /**
- * 商品のカテゴリー(中項目)を扱うクラス。
+ * 商品のサブカテゴリー(中項目)を扱うクラス。
  * @author Akihiro Yamada
  *
  */
@@ -25,8 +25,13 @@ public class SubCategory {
         return url;
     }
 
-    public void setUrl(Url url) {
-        this.url = url;
+    /**
+     * mapperを使用してDBから取得した値を設定するために、
+     * String型を引数にとる。
+     * @param url サブカテゴリー(中項目)のURL。
+     */
+    public void setUrl(String url) {
+        this.url = new Url(url);
     }
 
 }
