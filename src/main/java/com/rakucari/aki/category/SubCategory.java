@@ -30,8 +30,8 @@ public class SubCategory {
      * String型を引数にとる。
      * @param url サブカテゴリー(中項目)のURL。
      */
-    public void setUrl(String url) {
-        this.url = new Url(url);
+    public void setUrl(Url url) {
+        this.url = url;
     }
 
 }

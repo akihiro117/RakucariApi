@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rakucari.aki.selectcategories.mapper.CategoryMapper">
+    <resultMap id="MajorCategoryMap" type="com.rakucari.aki.category.MajorCategory">
+        <id column="id"></id>
+        <result column="mc_name" property="name"></result>
+        <association property="url" javaType="com.rakucari.aki.common.Url">
+            <result column="mc_url" property="url"></result>
+        </association>
+        <collection property="subCategories" autoMapping="true" ofType="com.rakucari.aki.category.SubCategory">
+            <id column="id"></id>
+            <result column="sc_name" property="name"></result>
+            <association property="url" javaType="com.rakucari.aki.common.Url">
+               <result column="sc_url" property="url"></result>
+            </association>
+        </collection>
+    </resultMap>
+    <select id="findAllMajorCategories" resultMap="MajorCategoryMap">
+        SELECT
+            mc.name as mc_name,
+            mc.url as mc_url,
+            sc.name as sc_name,
+            sc.url as sc_url
+        FROM
+            category mc
+            INNER JOIN
+                sub_category sc
+            ON
+                mc.id = sc.major_category_id
+    </select>
+</mapper>

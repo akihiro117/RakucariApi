@@ -9,8 +9,11 @@ package com.rakucari.aki.common;
 public class Url {
     private String url;
 
-    public Url(String url) {
-        // TODO: urlのバリデーションを行う。
+    public Url() {
+
+    }
+
+    public void setUrl(String url) {
         this.url = url;
     }
 

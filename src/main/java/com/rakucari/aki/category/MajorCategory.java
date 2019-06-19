@@ -35,8 +35,8 @@ public class MajorCategory {
      * String型を引数にとる。
      * @param url カテゴリー(大項目)のURL。
      */
-    public void setUrl(String url) {
-        this.url = new Url(url);
+    public void setUrl(Url url) {
+        this.url = url;
     }
 
     public List<SubCategory> getSubCategories() {
