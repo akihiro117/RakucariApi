@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoryController {
 
     @Autowired
-    private SelectCategoriesService selectCategoriesService;
+    private SelectMajorCategoriesService selectCategoriesService;
 
     /**
      * カテゴリーのリストを返す。
@@ -27,7 +27,7 @@ public class CategoryController {
         CategoriesResponse response = new CategoriesResponse();
 
         response.setMajorCategories(
-                selectCategoriesService.findAllCategories());
+                selectCategoriesService.selectAllMajorCategories());
 
         return response;
     }

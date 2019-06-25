@@ -25,11 +25,6 @@ public class SubCategory {
         return url;
     }
 
-    /**
-     * mapperを使用してDBから取得した値を設定するために、
-     * String型を引数にとる。
-     * @param url サブカテゴリー(中項目)のURL。
-     */
     public void setUrl(Url url) {
         this.url = url;
     }

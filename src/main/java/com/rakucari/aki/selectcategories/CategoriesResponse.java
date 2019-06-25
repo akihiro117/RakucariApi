@@ -13,9 +13,6 @@ import com.rakucari.aki.category.MajorCategory;
 public class CategoriesResponse {
     private List<MajorCategory> categories;
 
-    public CategoriesResponse() {
-    }
-
     public boolean hasMajorCategories() {
         return this.categories.size() != 0;
     }
