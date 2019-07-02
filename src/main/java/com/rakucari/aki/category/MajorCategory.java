@@ -2,8 +2,6 @@ package com.rakucari.aki.category;
 
 import java.util.List;
 
-import com.rakucari.aki.common.Url;
-
 /**
  * 商品のカテゴリー(大項目)を扱うクラス。
  * @author Akihiro Yamada
@@ -13,7 +11,7 @@ public class MajorCategory {
     private String name;
 
     /** カテゴリーから検索するページのURL。*/
-    private Url url;
+    private String url;
 
     /** このカテゴリーに属するサブカテゴリー。*/
     private List<SubCategory> subCategories;
@@ -26,11 +24,11 @@ public class MajorCategory {
         this.name = name;
     }
 
-    public Url getUrl() {
+    public String getUrl() {
         return url;
     }
 
-    public void setUrl(Url url) {
+    public void setUrl(String url) {
         this.url = url;
     }
 

@@ -5,15 +5,11 @@
     <resultMap id="MajorCategoryMap" type="com.rakucari.aki.category.MajorCategory">
         <id column="id"></id>
         <result column="mc_name" property="name"></result>
-        <association property="url" javaType="com.rakucari.aki.common.Url">
-            <result column="mc_url" property="url"></result>
-        </association>
+        <result column="mc_url" property="url"></result>
         <collection property="subCategories" autoMapping="true" ofType="com.rakucari.aki.category.SubCategory">
             <id column="id"></id>
             <result column="sc_name" property="name"></result>
-            <association property="url" javaType="com.rakucari.aki.common.Url">
-               <result column="sc_url" property="url"></result>
-            </association>
+            <result column="sc_url" property="url"></result>
         </collection>
     </resultMap>
     <select id="findAllMajorCategories" resultMap="MajorCategoryMap">

@@ -1,6 +1,5 @@
 package com.rakucari.aki.category;
 
-import com.rakucari.aki.common.Url;
 
 /**
  * 商品のサブカテゴリー(中項目)を扱うクラス。
@@ -11,7 +10,7 @@ public class SubCategory {
     private String name;
 
     /** サブカテゴリーから検索するページのURL。 */
-    private Url url;
+    private String url;
 
     public String getName() {
         return name;
@@ -21,11 +20,11 @@ public class SubCategory {
         this.name = name;
     }
 
-    public Url getUrl() {
+    public String getUrl() {
         return url;
     }
 
-    public void setUrl(Url url) {
+    public void setUrl(String url) {
         this.url = url;
     }
 
