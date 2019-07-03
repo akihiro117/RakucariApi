@@ -16,9 +16,6 @@
         <result column="mc_name" property="name"></result>
         <result column="mc_url" property="url"></result>
         <collection property="subCategories" column="id" javaType="ArrayList" select="findSubCategories">
-            <id column="id"></id>
-            <result column="sc_name" property="name"></result>
-            <result column="sc_url" property="url"></result>
         </collection>
     </resultMap>
 
