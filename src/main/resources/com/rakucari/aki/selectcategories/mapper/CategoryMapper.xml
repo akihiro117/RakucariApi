@@ -2,27 +2,41 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.rakucari.aki.selectcategories.mapper.CategoryMapper">
+    <select id="findAllMajorCategories" resultMap="MajorCategoryMap">
+        SELECT
+            id,
+            mc.name as mc_name,
+            mc.url as mc_url
+        FROM
+            category mc
+    </select>
+
     <resultMap id="MajorCategoryMap" type="com.rakucari.aki.category.MajorCategory">
         <id column="id"></id>
         <result column="mc_name" property="name"></result>
         <result column="mc_url" property="url"></result>
-        <collection property="subCategories" autoMapping="true" ofType="com.rakucari.aki.category.SubCategory">
+        <collection property="subCategories" column="id" javaType="ArrayList" select="findSubCategories">
             <id column="id"></id>
             <result column="sc_name" property="name"></result>
             <result column="sc_url" property="url"></result>
         </collection>
     </resultMap>
-    <select id="findAllMajorCategories" resultMap="MajorCategoryMap">
+
+
+    <select id="findSubCategories" resultMap="SubCategoryMap">
         SELECT
-            mc.name as mc_name,
-            mc.url as mc_url,
             sc.name as sc_name,
             sc.url as sc_url
         FROM
-            category mc
-            INNER JOIN
-                sub_category sc
-            ON
-                mc.id = sc.major_category_id
+            sub_category sc
+        WHERE
+            sc.major_category_id = #{id}
     </select>
+
+    <resultMap id="SubCategoryMap" type="com.rakucari.aki.category.SubCategory">
+        <id column="id"></id>
+        <result column="sc_name" property="name"></result>
+        <result column="sc_url" property="url"></result>
+    </resultMap>
+
 </mapper>
