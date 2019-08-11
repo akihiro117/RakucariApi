@@ -2,8 +2,6 @@ package com.rakucari.aki.selectlatestgoods;
 
 import java.util.List;
 
-import com.rakucari.aki.goods.Goods;
-
 /**
  * 最近追加された商品を取得するAPIのレスポンス。
  * @author Akihiro Yamada
@@ -11,13 +9,14 @@ import com.rakucari.aki.goods.Goods;
  */
 public class LatestGoodsResponse {
     /** 最近追加された商品のリスト。 */
-    private List<Goods> latestGoodsList;
+    private List<GoodsListPerCategory> latestGoodsList;
 
-    public List<Goods> getLatestGoodsList() {
+    public List<GoodsListPerCategory> getLatestGoodsList() {
         return latestGoodsList;
     }
 
-    public void setLatestGoodsList(List<Goods> latestGoodsList) {
+    public void setLatestGoodsList(List<GoodsListPerCategory> latestGoodsList) {
         this.latestGoodsList = latestGoodsList;
     }
+
 }

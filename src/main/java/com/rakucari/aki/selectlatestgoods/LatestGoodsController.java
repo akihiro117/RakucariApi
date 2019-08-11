@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rakucari.aki.goods.Goods;
+
 /**
  * 最近追加された商品の一覧を扱うコントローラークラス。
  * @author Akihiro Yamada
@@ -24,6 +26,17 @@ public class LatestGoodsController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public void fetchLatestGoods() {
+        Goods dummy1 = new Goods();
+        dummy1.setGoodsName("ダミーの商品1");
+        dummy1.setImgUrl("/assets/images/dummy-goods1/dummy1.png");
 
+        GoodsListPerCategory dummyList1 = new GoodsListPerCategory();
+
+        Goods dummy2 = new Goods();
+        dummy2.setGoodsName("ダミーの商品2");
+        dummy2.setImgUrl("/assets/images/dummy-goods2/dummy2.png");
+
+
+        LatestGoodsResponse res = new LatestGoodsResponse();
     }
 }
