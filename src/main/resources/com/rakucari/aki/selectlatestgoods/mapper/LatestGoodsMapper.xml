@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rakucari.aki.selectlatestgoods.mapper.LatestGoodsMapper>
+    <select id="findLatestGoods" resultMap="LatestGoodsMap">
+        SELECT
+            id,
+            name as major_category
+        FROM
+            category
+        WHERE
+            del_flg = false
+    </select>
+
+    <resultMap id="LatestGoodsMap" type="com.rakucari.aki.selectlatestgoods.GoodsListPerCategory">
+        <id column="id"></id>
+        <result column="major_category" property="categoryName"></result>
+        <collection property="recentlyGoodsList" column="id" javaType="ArrayList" select="goods">
+        </collection>
+    </resultMap>
+
+
+    <select id="goods" resultMap="GoodsMap">
+        SELECT
+            g.id as id,
+            g.name as goods_name,
+            g.detail_url as detail_url,
+            gi.path as img_url
+        FROM
+            goods g,
+            goods_image gi
+        WHERE
+            g.major_category_id = #{id}
+        AND
+            g.id = gi.goods_id
+        AND
+            gi.displayed_order = 1
+        AND
+            g.del_flg = false
+        AND
+            gi.del_flg = false
+        ORDER BY
+            g.added_time DESC
+        LIMIT 2;
+    </select>
+
+    <resultMap id="GoodsMap" type="com.rakucari.aki.goods.Goods">
+        <id column="id"></id>
+        <result column="goods_name" property="goodsName"></result>
+        <result column="detail_url" property="goodsDetailUrl"></result>
+        <result column="img_url" property="imgUrl"></result>
+    </resultMap>
+
+</mapper>
