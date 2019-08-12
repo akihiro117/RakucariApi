@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.rakucari.aki.category.MajorCategory;
 import com.rakucari.aki.selectcategories.mapper.CategoryMapper;
@@ -15,6 +16,7 @@ import com.rakucari.aki.selectcategories.mapper.CategoryMapper;
  *
  */
 @Service
+@Transactional
 public class SelectMajorCategoriesService {
 
     @Autowired
