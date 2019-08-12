@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.rakucari.aki.selectlatestgoods.mapper.LatestGoodsMapper>
+<mapper namespace="com.rakucari.aki.selectlatestgoods.mapper.LatestGoodsMapper">
     <select id="findLatestGoods" resultMap="LatestGoodsMap">
         SELECT
-            id,
-            name as major_category
+            c.id as id,
+            c.name as major_category
         FROM
-            category
+            category c
         WHERE
+            (SELECT
+                COUNT(*)
+             FROM
+                goods g
+             WHERE
+                g.major_category_id = c.id) != 0
+        AND
             del_flg = false
     </select>
 
