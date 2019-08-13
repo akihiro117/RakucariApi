@@ -48,7 +48,7 @@
             gi.del_flg = false
         ORDER BY
             g.added_time DESC
-        LIMIT 2;
+        LIMIT 4;
     </select>
 
     <resultMap id="GoodsMap" type="com.rakucari.aki.goods.Goods">
