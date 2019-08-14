@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.rakucari.aki.selectlatestgoods.mapper.LatestGoodsMapper">
-    <select id="findLatestGoods" resultMap="LatestGoodsMap">
+<mapper namespace="com.rakucari.aki.selectrecentgoods.mapper.RecentGoodsMapper">
+    <select id="findRecentGoods" resultMap="RecentGoodsMap">
         SELECT
             c.id as id,
             c.name as major_category
@@ -19,10 +19,10 @@
             del_flg = false
     </select>
 
-    <resultMap id="LatestGoodsMap" type="com.rakucari.aki.selectlatestgoods.GoodsListPerCategory">
+    <resultMap id="RecentGoodsMap" type="com.rakucari.aki.selectrecentgoods.GoodsListPerCategory">
         <id column="id"></id>
         <result column="major_category" property="categoryName"></result>
-        <collection property="recentlyGoodsList" column="id" javaType="ArrayList" select="goods">
+        <collection property="recentGoodsList" column="id" javaType="ArrayList" select="goods">
         </collection>
     </resultMap>
 

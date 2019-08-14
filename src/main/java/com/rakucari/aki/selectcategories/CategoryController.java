@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Scope("prototype")
 public class CategoryController {
 
+    /** カテゴリーのリスト取得するservice。 */
     @Autowired
     private SelectMajorCategoriesService selectCategoriesService;
 

@@ -1,4 +1,4 @@
-package com.rakucari.aki.selectlatestgoods;
+package com.rakucari.aki.selectrecentgoods;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class GoodsListPerCategory {
     private String categoryName;
 
     /** 最近追加された商品のリスト。 */
-    private List<Goods> recentlyGoodsList;
+    private List<Goods> recentGoodsList;
 
     public String getCategoryName() {
         return categoryName;
@@ -24,11 +24,11 @@ public class GoodsListPerCategory {
         this.categoryName = categoryName;
     }
 
-    public List<Goods> getRecentlyGoodsList() {
-        return recentlyGoodsList;
+    public List<Goods> getRecentGoodsList() {
+        return recentGoodsList;
     }
 
-    public void setRecentlyGoodsList(List<Goods> recentlyGoodsList) {
-        this.recentlyGoodsList = recentlyGoodsList;
+    public void setRecentGoodsList(List<Goods> recentGoodsList) {
+        this.recentGoodsList = recentGoodsList;
     }
 }

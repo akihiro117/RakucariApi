@@ -1,4 +1,4 @@
-package com.rakucari.aki.selectlatestgoods;
+package com.rakucari.aki.selectrecentgoods;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -17,20 +17,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin
 @Scope("prototype")
-public class LatestGoodsController {
+public class RecentGoodsController {
 
+    /** 最近追加された商品のリストを取得するservice。 */
     @Autowired
-    LatestGoodsListService latestGoodsListService;
+    RecentGoodsListService recentGoodsListService;
 
     /**
      * 最近追加された商品のリストを返す。
      * @return 最近追加された商品のリスト。
      */
     @RequestMapping(method = RequestMethod.GET)
-    public LatestGoodsResponse fetchLatestGoods() {
+    public RecentGoodsResponse fetchRecentGoods() {
 
-        LatestGoodsResponse res = new LatestGoodsResponse();
-        res.setLatestGoodsList(latestGoodsListService.fetchLatestGoodsList());
+        // レスポンス用インスタンス。
+        RecentGoodsResponse res = new RecentGoodsResponse();
+        res.setRecentGoodsList(recentGoodsListService.fetchRecentGoodsList());
 
         return res;
     }

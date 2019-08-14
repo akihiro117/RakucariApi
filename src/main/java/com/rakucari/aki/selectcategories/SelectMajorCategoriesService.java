@@ -19,6 +19,7 @@ import com.rakucari.aki.selectcategories.mapper.CategoryMapper;
 @Transactional
 public class SelectMajorCategoriesService {
 
+    /** カテゴリーを取得するmapper。 */
     @Autowired
     CategoryMapper categoryMapper;
 
