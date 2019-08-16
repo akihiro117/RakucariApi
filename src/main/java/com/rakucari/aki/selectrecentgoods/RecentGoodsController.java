@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 
-@RequestMapping("latest-goods")
+@RequestMapping("recent-goods")
 @RestController
 @CrossOrigin
 @Scope("prototype")
