@@ -53,6 +53,7 @@
 
     <resultMap id="GoodsMap" type="com.rakucari.aki.goods.Goods">
         <id column="id"></id>
+        <result column="id" property="id"></result>
         <result column="goods_name" property="goodsName"></result>
         <result column="detail_url" property="goodsDetailUrl"></result>
         <result column="img_url" property="imgUrl"></result>

@@ -6,6 +6,9 @@ package com.rakucari.aki.goods;
  *
  */
 public class Goods {
+    /** 商品ID。 */
+    private String id;
+
     /** 商品名。*/
     private String goodsName;
 
@@ -14,6 +17,14 @@ public class Goods {
 
     /** 商品画像のURL。 */
     private String imgUrl;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getGoodsName() {
         return goodsName;
