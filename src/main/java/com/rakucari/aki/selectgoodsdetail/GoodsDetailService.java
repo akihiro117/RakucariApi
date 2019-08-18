@@ -20,13 +20,14 @@ public class GoodsDetailService {
     GoodsDetailMapper goodsDetailMapper;
 
     /**
-     * 引数で指定された商品の詳細情報を取得。
+     * 引数で指定された商品の情報を取得。
      * @param id 詳細情報を取得したい商品のID。
      * @return 商品の詳細情報。
      */
-    public Goods fetchGoodsDetail(Integer id) {
-        Goods goodsDetail = new Goods();
-        goodsDetail = goodsDetailMapper.findGoodsDetail(id);
+    public Goods fetchGoodsDetail(int id) {
+
+        // DBから商品の情報を取得。
+        Goods goodsDetail = goodsDetailMapper.findGoodsDetail(id);
 
         return goodsDetail;
     }

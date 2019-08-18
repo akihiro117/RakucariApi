@@ -3,7 +3,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.rakucari.aki.selectgoodsdetail.mapper.GoodsDetailMapper">
     <select id="findGoodsDetail" resultType="com.rakucari.aki.goods.Goods"
-                                 parameterType="Integer">
+                                 parameterType="_int">
         SELECT
             g.name as goodsName,
             gi.path as imgUrl,
