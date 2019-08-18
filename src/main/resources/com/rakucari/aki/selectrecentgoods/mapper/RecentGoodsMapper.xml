@@ -31,7 +31,6 @@
         SELECT
             g.id as id,
             g.name as goods_name,
-            g.detail_url as detail_url,
             gi.path as img_url
         FROM
             goods g,
