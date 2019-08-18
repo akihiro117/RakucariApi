@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rakucari.aki.selectgoodsdetail.mapper.GoodsDetailMapper">
+    <select id="findGoodsDetail" resultType="com.rakucari.aki.goods.Goods"
+                                 parameterType="Integer">
+        SELECT
+            g.name as goodsName,
+            gi.path as imgUrl,
+            c.name as majorCategory,
+            u.use_status as useStatus,
+            f.fee_responsibility as feeResponsibility,
+            s.shipping_date as shippingDate,
+            g.price as price,
+            COALESCE(g.description, '') as description
+        FROM
+            goods g
+        LEFT OUTER JOIN
+            goods_image gi
+        ON
+            gi.goods_id = #{id}
+        AND
+            gi.del_flg = false
+        LEFT OUTER JOIN
+            category c
+        ON
+            c.id = g.major_category_id
+        AND
+            c.del_flg = false
+        LEFT OUTER JOIN
+            use_status u
+        ON
+            u.id = g.use_status_id
+        LEFT OUTER JOIN
+            fee_responsibility f
+        ON
+            f.id = g.fee_responsibility_id
+        LEFT OUTER JOIN
+            shipping_date s
+        ON
+            s.id = g.shipping_date_id
+        WHERE
+            g.id = #{id}
+        AND
+            g.del_flg = false
+    </select>
+</mapper>
