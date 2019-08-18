@@ -16,5 +16,5 @@ public interface GoodsDetailMapper {
      * 引数で指定された商品の情報を取得。
      * @return 引数で指定された商品の情報。
      */
-    public Goods findGoodsDetail(Integer id);
+    public Goods findGoodsDetail(int id);
 }
