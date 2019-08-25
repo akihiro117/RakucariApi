@@ -12,7 +12,8 @@
             f.fee_responsibility as feeResponsibility,
             s.shipping_date as shippingDate,
             g.price as price,
-            COALESCE(g.description, '') as description
+            COALESCE(g.description, '') as description,
+            p.prefecture_name as srcRegion
         FROM
             goods g
         LEFT OUTER JOIN
@@ -39,6 +40,10 @@
             shipping_date s
         ON
             s.id = g.shipping_date_id
+        LEFT OUTER JOIN
+            prefecture p
+        ON
+            g.src_region_id = p.id
         WHERE
             g.id = #{id}
         AND
