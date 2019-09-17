@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rakucari.aki.selectgoodsoptions.mapper.GoodsOptionsMapper">
+    <select id="findAllCategory" resultType="com.rakucari.aki.category.MajorCategory">
+        SELECT
+            id,
+            name
+        FROM
+            category
+        WHERE
+            del_flg = false
+    </select>
+
+    <select id="findAllUseStatus" resultType="com.rakucari.aki.selectgoodsoptions.UseStatus">
+        SELECT
+            id,
+            use_status AS useStatus
+        FROM
+            use_status
+        WHERE
+            del_flg = false
+    </select>
+
+    <select id="findAllFeeResponsibility" resultType="com.rakucari.aki.selectgoodsoptions.FeeResponsibility">
+        SELECT
+            id,
+            fee_responsibility AS feeResponsibility
+        FROM
+            fee_responsibility
+        WHERE
+            del_flg = false
+    </select>
+
+    <select id="findAllSrcRegion" resultType="com.rakucari.aki.selectgoodsoptions.SrcRegion">
+        SELECT
+            id,
+            prefecture_name AS srcRegion
+        FROM
+            prefecture
+    </select>
+
+    <select id="findAllShippingDate" resultType="com.rakucari.aki.selectgoodsoptions.ShippingDate">
+        SELECT
+            id,
+            shipping_date AS shippingDate
+        FROM
+            shipping_date
+        WHERE
+            del_flg = false
+    </select>
+
+</mapper>
