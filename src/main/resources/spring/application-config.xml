@@ -16,5 +16,6 @@
         http://mybatis.org/schema/mybatis-spring.xsd">
 
     <mybatis:scan base-package="com.rakucari.aki.selectcategories.mapper"/>
+    <mybatis:scan base-package="com.rakucari.aki.selectgoodsoptions.mapper"/>
 
 </beans>

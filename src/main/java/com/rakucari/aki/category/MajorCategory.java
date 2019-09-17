@@ -8,6 +8,8 @@ import java.util.List;
  *
  */
 public class MajorCategory {
+    private String id;
+
     private String name;
 
     /** カテゴリーから検索するページのURL。*/
@@ -15,6 +17,14 @@ public class MajorCategory {
 
     /** このカテゴリーに属するサブカテゴリー。*/
     private List<SubCategory> subCategories;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
